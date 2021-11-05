@@ -15,9 +15,13 @@ namespace API_Filmes.Controllers
     [ApiController]
     public class Filmes : Controller
     {
+        //interface com o banco
         private FilmeContext _context;
+
+        //Realiza as conversões DTO
         private IMapper _mapper;
 
+        //Os parâmetros vem do Startup.cs
         public Filmes(FilmeContext context, IMapper mapper)
         {
             _context = context;

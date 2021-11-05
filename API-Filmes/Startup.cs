@@ -25,20 +25,22 @@ namespace API_Filmes
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {   //Realiza a configuração do banco de dados relacionando ao DbContext
             services.AddDbContext<FilmeContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FilmeConnection")));
+            
             services.AddControllers();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API_Filmes", Version = "v1" });
             });
 
+            //Responsável por fazer as conversões DTO 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

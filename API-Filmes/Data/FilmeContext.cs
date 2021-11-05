@@ -9,9 +9,10 @@ using System.Threading.Tasks;
 
 namespace API_Filmes.Data
 {
-   
+   //DbContext é a classe base para utilização do Entity Framework
     public class FilmeContext : DbContext
     {
+        //Os parâmetros vem do Starup.cs
         public FilmeContext(DbContextOptions<FilmeContext> opt) : base(opt)
         {
 
