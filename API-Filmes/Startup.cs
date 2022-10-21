@@ -27,7 +27,7 @@ namespace API_Filmes
 
         public void ConfigureServices(IServiceCollection services)
         {   //Realiza a configuração do banco de dados relacionando ao DbContext
-            services.AddDbContext<FilmeContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FilmeConnection")));
+            services.AddDbContext<AppDbContext>(opts => opts.UseSqlServer(Configuration.GetConnectionString("FilmeConnection")));
             
             services.AddControllers();
             

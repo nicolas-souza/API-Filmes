@@ -13,16 +13,16 @@ namespace API_Filmes.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Filmes : Controller
+    public class FilmeController : Controller
     {
         //interface com o banco
-        private FilmeContext _context;
+        private AppDbContext _context;
 
         //Realiza as conversões DTO
         private IMapper _mapper;
 
         //Os parâmetros vem do Startup.cs
-        public Filmes(FilmeContext context, IMapper mapper)
+        public FilmeController(AppDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
